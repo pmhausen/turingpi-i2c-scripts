@@ -20,10 +20,7 @@ Installation on control node
    ```
    git clone https://github.com/pmhausen/turingpi-i2c-scripts.git
    cd turingpi-i2c-scripts
-   sudo cp nodectl.sh /usr/local/sbin/nodectl
-   sudo cp nodestat.sh /usr/local/sbin/nodestat
-   sudo chmod 755 /usr/local/sbin/nodectl /usr/local/sbin/nodestat
-   sudo chown root:root /usr/local/sbin/nodectl /usr/local/sbin/nodestat
+   make install
    ```
 
 Usage
