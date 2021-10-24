@@ -5,19 +5,22 @@ Installation on control node
 ----------------------------
 
 1. Enable the i2c bus by adding this line to `/boot/firmware/usercfg.txt`:
-   ```
+
+   ```sh
    dtoverlay=i2c1,pins_44_45
    ```
 
 2. Install i2c-tools:
-   ```
+
+   ```sh
    sudo apt-get install i2c-tools
    ```
 
 3. Reboot the control node.
 
 4. Install scripts:
-   ```
+
+   ```sh
    git clone https://github.com/pmhausen/turingpi-i2c-scripts.git
    cd turingpi-i2c-scripts
    make install
@@ -26,7 +29,7 @@ Installation on control node
 Usage
 -----
 
-```
+```sh
 root@pi1:~# nodectl
 usage: nodectl <node> on|off
 root@pi1:~# nodectl 2 off
