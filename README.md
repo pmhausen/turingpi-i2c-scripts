@@ -4,7 +4,7 @@ Two small scripts to make control of compute nodes on a TuringPi easier
 Installation on control node
 ----------------------------
 
-1. Enable the i2c bus by adding this line to `/boot/firmware/usercfg.txt`:
+1. Assuming you are running Raspberry Pi OS (Lite) enable the I2C bus by adding this line to `/boot/config.txt` in section **all**:
 
    ```sh
    dtoverlay=i2c1,pins_44_45
@@ -52,5 +52,4 @@ NODE STATE
  5    on
  6    on
  7    on
-root@pi1:~# 
 ```
