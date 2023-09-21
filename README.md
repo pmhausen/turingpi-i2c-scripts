@@ -1,10 +1,10 @@
-Two small scripts to make control of compute nodes on a TuringPi easier
-=======================================================================
+# Two small scripts to make control of compute nodes on a TuringPi easier
 
-Installation on control node
-----------------------------
+## Installation on control node
 
-1. Assuming you are running Raspberry Pi OS (Lite) enable the I2C bus by adding this line to `/boot/config.txt` in section **all**:
+### Linux (Raspberry Pi OS)
+
+1. Enable the I2C bus by adding this line to `/boot/config.txt` in section **all**:
 
    ```sh
    dtoverlay=i2c1,pins_44_45
@@ -16,9 +16,31 @@ Installation on control node
    sudo apt-get install i2c-tools
    ```
 
-3. Reboot the control node.
+### FreeBSD
 
-4. Install scripts:
+1. Enable the I2C bus by adding this line to `/boot/efi/config.txt` in section **all**:
+
+   ```sh
+   dtoverlay=i2c1,pins_44_45
+   ```
+
+2. Install required packages
+
+   ```sh
+   pkg install rpi-firmware xxd
+   ```
+
+3. Copy the overlay for the I2C bus to the boot partiton:
+
+   ```sh
+   cp /usr/local/share/rpi-firmware/overlays/i2c1.dtbo /boot/efi/overlays/
+   ```
+
+### OS independent
+
+1. Reboot the control node
+
+2. Install scripts:
 
    ```sh
    git clone https://github.com/pmhausen/turingpi-i2c-scripts.git
@@ -26,8 +48,7 @@ Installation on control node
    make install
    ```
 
-Usage
------
+## Usage
 
 ```sh
 root@pi1:~# nodectl
